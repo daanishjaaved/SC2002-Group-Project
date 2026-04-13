@@ -6,8 +6,8 @@ public abstract class StatusEffect {
 
   /**
      * Constructor for a StatusEffect.
-     * name The name of the status.
-     * duration The number of turns the effect should last.
+     * name: The name of the status.
+     * duration: The number of turns the effect should last.
      */
   public StatusEffect(String name, int duration) {
     this.name = name; 
@@ -15,7 +15,7 @@ public abstract class StatusEffect {
   }
 
   /**
-     * return The display name of this status effect.
+     * return display name of this status effect.
      */
   public String getName() {
     return name;
