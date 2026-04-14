@@ -11,12 +11,12 @@ public interface Action {
   // Executes the action on the selected target(s)
   void execute(Combatant target, List<Combatant> targets);
 
+  // Indicates whether the BattleEngine must prompt for target selection
+  boolean targetSelection();
+
   // Returns true if the action can currently be used (e.g. not on cooldown), vice versa
   boolean isAvail(Combatant target);
 
- // Indicates whether the BattleEngine must prompt for target selection
-  boolean targetSelection();
-
   // Indicates whether the action affects multiple targets (AOE)
-  boolean isAreaOfEffect();
+  boolean isAOE();
 }
