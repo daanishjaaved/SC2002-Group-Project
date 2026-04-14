@@ -2,33 +2,31 @@ package Entity;
 
 import java.util.List;
 
-// Skill: Wizard
-// Special Skill: deal BasicAttack dmg to all enemies
-// grant 10 ATK for rest of battle after each kill
-// Cooldown: 3 turns
-
 public class ArcaneBlast extends SpecialSkill {
 
-  public ArcaneBlast(Player owner) {
-    super(owner);
+  // Constructor
+  public ArcaneBlast(Player player) {
+    super(player);
   }
 
+  // return skill name
   @Override
   public String getName() {
     return "Arcane Blast";
   }
 
+  // return skill description
   @Override
-  public String getDesc(Combatant performer) {
-    return performer.getAtk() + "dmg is dealt to all enemies! 10 ATk is granted! (Cooldown: 3 turns)";
+  public String getDesc(Combatant target) {
+    return target.getAtk() + "dmg dealt to all enemies and gain 10 Attack for each enemy defeated by Arcane Blast. (Cooldown: 3 turns)";
   }
 
   @Override
-  public void execute(Combatant performer, List<Combatant> targets) {
+  public void execute(Combatant player, List<Combatant> targets) {
     for (Combatant target : targets) {
       // check alive before dealing dmg
       boolean targetWasAlive = target.isAlive(); // store state before dmg
-      target.takeDmg(performer.getAtk());
+      target.takeDmg(player.getAtk());
 
       if (targetWasAlive && !target.isAlive()) { // False: no kill
         caster.onKill(); // wiz gains +10 ATK for each kill
@@ -43,7 +41,7 @@ public class ArcaneBlast extends SpecialSkill {
   }
 
   @Override
-  public boolean isAreaOfEffect() { // This skill is an AOE skill
+  public boolean isAOE() { // This skill is an AOE skill
     return true;
   }
 }
