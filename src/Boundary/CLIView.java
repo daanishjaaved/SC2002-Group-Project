@@ -25,8 +25,9 @@ public class CLIView implements GameUI {
     // Renders a formatted table of all active combatants and their starting stats
     @Override
     public void displayLoadingScreen(List<Player> playerList, List<Enemy> enemyList) {
-        System.out.println("\n------------------------------------------------------------------");
-        System.out.println("                       FCS5 Group 1 Game                           ");
+        System.err.println();
+        System.out.println("------------------------------------------------------------------");
+        System.out.println("            FCS5 Group 1 Turn-Based Combat Arena Game             ");
         System.out.println("------------------------------------------------------------------");
         
         System.out.println("\n[ LIST OF PLAYERS ]");
